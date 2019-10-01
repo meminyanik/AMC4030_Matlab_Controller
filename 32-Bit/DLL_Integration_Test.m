@@ -20,26 +20,3 @@ status = system(command);
 loadlibrary('AMC4030.dll', 'ComInterface.h', 'mfilename', 'ComInterfaceHeader');
 % Change the call to loadlibrary in your MATLAB to the following:
 loadlibrary('AMC4030.dll', @ComInterfaceHeader)
-
-
-%% Radar Studio
-RSTD_DLL_Path ='C:\ti\mmwave_studio_02_00_00_02\mmWaveStudio\Clients\RtttNetClientController\RtttNetClientAPI.dll';
-ErrStatus = Init_RSTD_Connection(RSTD_DLL_Path);
-
-
-%% HSDC Pro
-% 64 Bit
-HSDCPRO_DLL_Path = 'C:\Program Files (x86)\Texas Instruments\High Speed Data Converter Pro\HSDCPro Automation DLL\64Bit DLL\HSDCProAutomation_64Bit.dll';
-addpath('C:\Program Files (x86)\Texas Instruments\High Speed Data Converter Pro\HSDCPro Automation DLL\Manual and Examples\Automation DLL Matlab Example\64Bit Matlab\')
-
-% 32 Bit
-HSDCPRO_DLL_Path = 'C:\Program Files (x86)\Texas Instruments\High Speed Data Converter Pro\HSDCPro Automation DLL\32Bit DLL\HSDCProAutomation.dll';
-addpath('C:\Program Files (x86)\Texas Instruments\High Speed Data Converter Pro\HSDCPro Automation DLL\Manual and Examples\Automation DLL Matlab Example\32Bit Matlab\')
-
-
-
-% Load the Automation DLL
-if libisloaded('HSDCProAutomation_64Bit')
-    unloadlibrary('HSDCProAutomation_64Bit');
-end
-loadlibrary(HSDCPRO_DLL_Path, @HSDCProAutomationHeader);
